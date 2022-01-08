@@ -1,4 +1,4 @@
 {
-    "page_type":"tailwindcss",
+    "pageType":"tailwindcss",
     "database": "mongodb"
 }
