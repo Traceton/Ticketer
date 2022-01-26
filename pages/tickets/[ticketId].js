@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import TicketComments from "../../components/shared/TicketCommentList";
+import TicketComments from "../../components/shared/TicketReplyList";
 
 export default function TicketDetails(props) {
   // router object from next
