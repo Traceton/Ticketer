@@ -5,7 +5,7 @@ module.exports = {
       {
         source: "/",
         destination: "/tickets",
-        permanent: true,
+        permanent: false,
       },
     ];
   },

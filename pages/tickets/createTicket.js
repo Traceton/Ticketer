@@ -48,7 +48,7 @@ export default function CreateTicket() {
                     name="title"
                     id="title"
                     autoComplete="title"
-                    className="shadow-sm  border border-transparent block h-10 w-full text-xl font-light sm:text-sm border border-gray-300 rounded-md"
+                    className="shadow-sm  border border-transparent block h-10 w-full text-xl bg-gray-600 font-light sm:text-sm border border-gray-300 rounded-md"
                   />
                 </div>
               </div>
