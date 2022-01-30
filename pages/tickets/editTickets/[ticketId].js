@@ -1,5 +1,4 @@
-
-  import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 export default function EditTicket(props) {
   // router object from next
@@ -10,147 +9,175 @@ export default function EditTicket(props) {
   const updateTicket = async (event) => {
     event.preventDefault();
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST_URL}/api/tickets/${ticketId}`, {
-      body: JSON.stringify({
-         title: event.target.title.value, description: event.target.description.value, author: event.target.author.value, state: event.target.state.value
-      }),
-      headers: {
-        "User-Agent": "*",
-        "Content-Type": "application/json",
-      },
-      method: "PATCH",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_HOST_URL}/api/tickets/${ticketId}`,
+      {
+        body: JSON.stringify({
+          title: event.target.title.value,
+          description: event.target.description.value,
+          author: event.target.author.value,
+          state: event.target.state.value,
+        }),
+        headers: {
+          "User-Agent": "*",
+          "Content-Type": "application/json",
+        },
+        method: "PATCH",
+      }
+    );
 
-    router.push(`/tickets/${ticketId}`)
-
+    router.push(`/tickets/${ticketId}`);
   };
 
   const deleteTicket = async (event) => {
     event.preventDefault();
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST_URL}/api/tickets/${ticketId}`, {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_HOST_URL}/api/tickets/${ticketId}`,
+      {
+        headers: {
+          "User-Agent": "*",
+          "Content-Type": "application/json",
+        },
+        method: "DELETE",
+      }
+    );
 
-      headers: {
-        "User-Agent": "*",
-        "Content-Type": "application/json",
-      },
-      method: "DELETE",
-    });
-
-    router.push(`/tickets`)
-
-  }
+    router.push(`/tickets`);
+  };
 
   return (
-    <div className="bg-gray-700 h-screen">
-      <div className="p-2">
-        <div className=" m-4 p-4 rounded-md bg-gray-400 font-light space-y-8 ">
-          <form onSubmit={updateTicket}>
-            <div>
-              <h3 className="text-4xl leading-6 font-light text-gray-900">Edit Ticket</h3>
-            </div>
+    <>
+      <div className="bg-gray-900 min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="sm:mx-auto sm:w-full sm:max-w-md">
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
+            Edit ticket
+          </h2>
+        </div>
 
-            <div className="text-xl mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
-            <div className="sm:col-span-6">
-        <label htmlFor="title" className="block text-3xl font-light text-gray-700">
-          title
-        </label>
-        <div className="mt-1 flex rounded-md shadow-sm">
-          <input
-          defaultValue={props.ticket.title}
-            type="text"
-            name="title"
-            id="title"
-            autoComplete="title"
-            className="shadow-sm  border border-transparent block h-10 w-full text-xl font-light sm:text-sm border border-gray-300 rounded-md"
-          />
-        </div>
-      </div><div className="sm:col-span-6">
-        <label htmlFor="description" className="block text-3xl font-light text-gray-700">
-          description
-        </label>
-        <div className="mt-1 flex rounded-md shadow-sm">
-          <input
-          defaultValue={props.ticket.description}
-            type="text"
-            name="description"
-            id="description"
-            autoComplete="description"
-            className="shadow-sm  border border-transparent block h-10 w-full text-xl font-light sm:text-sm border border-gray-300 rounded-md"
-          />
-        </div>
-      </div><div className="sm:col-span-6">
-        <label htmlFor="author" className="block text-3xl font-light text-gray-700">
-          author
-        </label>
-        <div className="mt-1 flex rounded-md shadow-sm">
-          <input
-          defaultValue={props.ticket.author}
-            type="text"
-            name="author"
-            id="author"
-            autoComplete="author"
-            className="shadow-sm  border border-transparent block h-10 w-full text-xl font-light sm:text-sm border border-gray-300 rounded-md"
-          />
-        </div>
-      </div><div className="sm:col-span-6">
-        <label htmlFor="state" className="block text-3xl font-light text-gray-700">
-          state
-        </label>
-        <div className="mt-1 flex rounded-md shadow-sm">
-          <input
-          defaultValue={props.ticket.state}
-            type="text"
-            name="state"
-            id="state"
-            autoComplete="state"
-            className="shadow-sm  border border-transparent block h-10 w-full text-xl font-light sm:text-sm border border-gray-300 rounded-md"
-          />
-        </div>
-      </div>
-              <div className="m-2 p-2 w-full">
-                <div className="  flex justify-start">
-                  <button
-                    onClick={() => router.back()}
-                    type="button"
-                    className="m-1 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-xl font-light rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  >
-                    Back
-                  </button>
-                  <button
-                    onClick={deleteTicket}
-                    type="button"
-                    className="m-1 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-xl font-light rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  >
-                    Delete
-                  </button>
-                  <button
-                    type="submit"
-                    className="m-1 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-xl font-light rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  >
-                    Save
-                  </button>
+        <div className=" mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+          <div className="bg-gray-800 bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            <form className="space-y-6" onSubmit={updateTicket}>
+              <div>
+                <label
+                  htmlFor="state"
+                  className="block text-sm font-medium text-white"
+                >
+                  State
+                </label>
+                <div className="mt-1">
+                  <input
+                    defaultValue={props.ticket.state}
+                    id="state"
+                    name="state"
+                    type="state"
+                    autoComplete="state"
+                    required
+                    className="appearance-none block w-full px-3 py-2 bg-gray-700 border-0 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-white"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  htmlFor="title"
+                  className="block text-sm font-medium text-white"
+                >
+                  Title
+                </label>
+                <div className="mt-1">
+                  <input
+                    defaultValue={props.ticket.title}
+                    id="title"
+                    name="title"
+                    type="title"
+                    autoComplete="title"
+                    required
+                    className="appearance-none block w-full px-3 py-2 bg-gray-700 border-0 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-white"
+                  />
                 </div>
               </div>
 
-            </div>
-          </form>
+              <div>
+                <label
+                  htmlFor="description"
+                  className="block text-sm font-medium text-white"
+                >
+                  Description
+                </label>
+                <div className="mt-1">
+                  <input
+                    defaultValue={props.ticket.description}
+                    id="description"
+                    name="description"
+                    type="description"
+                    autoComplete="description"
+                    required
+                    className="appearance-none block w-full px-3 py-2 bg-gray-700 border-0 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-white"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  htmlFor="author"
+                  className="block text-sm font-medium text-white"
+                >
+                  Author
+                </label>
+                <div className="mt-1">
+                  <input
+                    defaultValue={props.ticket.author}
+                    id="author"
+                    name="author"
+                    type="author"
+                    autoComplete="author"
+                    required
+                    className="appearance-none block w-full px-3 py-2 bg-gray-700 border-0 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-white"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-row ">
+                <button
+                  onClick={() => router.back()}
+                  type="button"
+                  className=" flex justify-center py-2 px-4 mx-1 border border-gray-900 rounded-md shadow-sm text-sm font-medium text-white bg-none hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                  Back
+                </button>
+                <button
+                  onClick={() => router.back()}
+                  type="button"
+                  className=" flex justify-center py-2 px-4 mx-1 border border-gray-900 rounded-md shadow-sm text-sm font-medium text-white bg-none hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                  Delete
+                </button>
+                <button
+                  type="submit"
+                  className=" flex grow justify-center py-2 px-4 mx-1 border border-gray-900 rounded-md shadow-sm text-sm font-medium text-white bg-none hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                  Update
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
 export const getServerSideProps = async (context) => {
   // fetch ticket data from api here
   const ticketId = context.params.ticketId;
-  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST_URL}/api/tickets/${ticketId}`, {
-    headers: {
-      "User-Agent": "*",
-      Accept: "application/json; charset=UTF-8",
-    },
-    method: "GET"
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_HOST_URL}/api/tickets/${ticketId}`,
+    {
+      headers: {
+        "User-Agent": "*",
+        Accept: "application/json; charset=UTF-8",
+      },
+      method: "GET",
+    }
+  );
 
   const data = await res.json();
 
@@ -166,7 +193,3 @@ export const getServerSideProps = async (context) => {
     },
   };
 };
-
-
-
-  
