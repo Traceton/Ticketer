@@ -69,8 +69,8 @@ export default function Ticket(props) {
                         <td className="px-6 py-4 whitespace-nowrap text-md text-gray-200">
                           {ticket.title}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-md text-gray-200">
-                          ...
+                        <td className="truncate max-w-sm px-6 py-4 whitespace-nowrap text-md text-gray-200">
+                          {ticket.description}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-md text-gray-200">
                           {ticket.author}
