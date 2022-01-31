@@ -33,25 +33,25 @@ export default function Ticket(props) {
                     <tr>
                       <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
+                        className="px-2 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
                       >
                         State
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
+                        className="px-2 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
                       >
                         Title
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
+                        className="px-2 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
                       >
                         Description
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
+                        className="px-2 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
                       >
                         Author
                       </th>
@@ -63,19 +63,19 @@ export default function Ticket(props) {
                   <tbody className="bg-gray-700 divide-y divide-gray-800">
                     {props.tickets.map((ticket) => (
                       <tr key={ticket._id}>
-                        <td className="px-6 py-4 whitespace-nowrap text-md text-gray-200">
+                        <td className="px-2 py-4 whitespace-nowrap text-md text-gray-200">
                           {ticket.state}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-md text-gray-200">
+                        <td className="px-2 py-4 whitespace-nowrap text-md text-gray-200">
                           {ticket.title}
                         </td>
-                        <td className="truncate max-w-sm px-6 py-4 whitespace-nowrap text-md text-gray-200">
+                        <td className="truncate max-w-xs px-2 py-4 whitespace-nowrap text-md text-gray-200">
                           {ticket.description}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-md text-gray-200">
+                        <td className="px-2 py-4 whitespace-nowrap text-md text-gray-200">
                           {ticket.author}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right font-light text-md flex justify-end">
+                        <td className="px-2 py-4 whitespace-nowrap text-right font-light text-md flex justify-end">
                           <Link href={"/tickets/" + ticket._id}>
                             <a className="m-1 inline-flex justify-center  px-2 border border-transparent shadow-sm  font-light rounded-md text-white border-gray-500 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                               View
