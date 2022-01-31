@@ -18,7 +18,7 @@ export default function TicketDetails(props) {
 
         <div className=" mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-gray-800 bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <form className="space-y-6">
+            <div className="space-y-6">
               <div>
                 <label
                   htmlFor="state"
@@ -116,7 +116,7 @@ export default function TicketDetails(props) {
                   </a>
                 </Link>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
