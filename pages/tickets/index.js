@@ -15,7 +15,7 @@ export default function Ticket(props) {
             <div className="m-2 p-2 w-full">
               <div className="pt-2 flex justify-end">
                 <Link href="/tickets/createTicket">
-                  <a className="m-1 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-xl font-light rounded-md text-white border-gray-500 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  <a className="m-1 inline-flex justify-center py-2 px-4 border border-gray-700 shadow-sm text-xl font-light rounded-md text-white border-gray-500 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     +
                   </a>
                 </Link>
