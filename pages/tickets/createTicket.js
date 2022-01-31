@@ -80,7 +80,7 @@ export default function CreateTicket() {
                   Description
                 </label>
                 <div className="mt-1">
-                  <input
+                  <textarea
                     id="description"
                     name="description"
                     type="description"
