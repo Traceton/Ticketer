@@ -77,12 +77,12 @@ export default function Ticket(props) {
                         </td>
                         <td className="px-2 py-4 whitespace-nowrap text-right font-light text-md flex justify-end">
                           <Link href={"/tickets/" + ticket._id}>
-                            <a className="m-1 inline-flex justify-center  px-2 border border-transparent shadow-sm  font-light rounded-md text-white border-gray-500 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <a className="m-1 inline-flex justify-center  px-2 border border-gray-900 shadow-sm  font-light rounded-md text-white border-gray-500 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                               View
                             </a>
                           </Link>
                           <Link href={"/tickets/editTickets/" + ticket._id}>
-                            <a className="m-1 inline-flex justify-center  px-2 border border-transparent shadow-sm  font-light rounded-md text-white border-gray-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <a className="m-1 inline-flex justify-center  px-2 border border-gray-900 shadow-sm  font-light rounded-md text-white border-gray-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                               Edit
                             </a>
                           </Link>
