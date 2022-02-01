@@ -13,10 +13,11 @@ export default function EditTicket(props) {
       `${process.env.NEXT_PUBLIC_HOST_URL}/api/tickets/${ticketId}`,
       {
         body: JSON.stringify({
+          number: event.target.number.value,
+          state: event.target.state.value,
           title: event.target.title.value,
           description: event.target.description.value,
           author: event.target.author.value,
-          state: event.target.state.value,
         }),
         headers: {
           "User-Agent": "*",
@@ -60,10 +61,29 @@ export default function EditTicket(props) {
             <form className="space-y-6" onSubmit={updateTicket}>
               <div>
                 <label
+                  htmlFor="number"
+                  className="block text-sm font-medium text-white"
+                >
+                  number
+                </label>
+                <div className="mt-1">
+                  <input
+                    defaultValue={props.ticket.number}
+                    id="number"
+                    name="number"
+                    type="string"
+                    autoComplete="number"
+                    required
+                    className="appearance-none block w-full px-3 py-2 bg-gray-700 border-0 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-white"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
                   htmlFor="state"
                   className="block text-sm font-medium text-white"
                 >
-                  State
+                  state
                 </label>
                 <div className="mt-1">
                   <input
@@ -82,7 +102,7 @@ export default function EditTicket(props) {
                   htmlFor="title"
                   className="block text-sm font-medium text-white"
                 >
-                  Title
+                  title
                 </label>
                 <div className="mt-1">
                   <input
@@ -96,16 +116,15 @@ export default function EditTicket(props) {
                   />
                 </div>
               </div>
-
               <div>
                 <label
                   htmlFor="description"
                   className="block text-sm font-medium text-white"
                 >
-                  Description
+                  description
                 </label>
                 <div className="mt-1">
-                  <textarea
+                  <input
                     defaultValue={props.ticket.description}
                     id="description"
                     name="description"
@@ -121,7 +140,7 @@ export default function EditTicket(props) {
                   htmlFor="author"
                   className="block text-sm font-medium text-white"
                 >
-                  Author
+                  author
                 </label>
                 <div className="mt-1">
                   <input
@@ -144,7 +163,7 @@ export default function EditTicket(props) {
                   Back
                 </button>
                 <button
-                  onClick={() => router.back()}
+                  onClick={deleteTicket}
                   type="button"
                   className=" flex justify-center py-2 px-4 mx-1 border border-gray-900 rounded-md shadow-sm text-sm font-medium text-white bg-none hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >

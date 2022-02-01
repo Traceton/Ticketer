@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 
 const ticketSchema = new mongoose.Schema({
+  number: { type: String, required: true },
+  state: { type: String, required: true },
   title: { type: String, required: true },
   description: { type: String, required: true },
   author: { type: String, required: true },
-  state: { type: String, required: true },
   createdOn: {
     type: Date,
     required: true,

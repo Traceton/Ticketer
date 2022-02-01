@@ -6,7 +6,7 @@ export default function TicketDetails(props) {
   const router = useRouter();
 
   const ticket = props.ticket;
-  // should just have a edit and Home button navigation
+
   return (
     <>
       <div className="bg-gray-900 min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -21,20 +21,33 @@ export default function TicketDetails(props) {
             <div className="space-y-6">
               <div>
                 <label
+                  htmlFor="number"
+                  className="block text-sm font-bold text-white"
+                >
+                  number
+                </label>
+                <div className="mt-1">
+                  <h3
+                    id="number"
+                    name="number"
+                    className="appearance-none block w-full px-3 py-2 bg-gray-800 border-0 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-200"
+                  >
+                    {props.ticket.number}
+                  </h3>
+                </div>
+              </div>
+              <div>
+                <label
                   htmlFor="state"
                   className="block text-sm font-bold text-white"
                 >
-                  State
+                  state
                 </label>
                 <div className="mt-1">
                   <h3
                     id="state"
                     name="state"
-                    className="appearance-none block w-full px-3 py-2
-                    bg-gray-800 border-0 rounded-md shadow-sm
-                    placeholder-gray-400 focus:outline-none
-                    focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm
-                    text-gray-200"
+                    className="appearance-none block w-full px-3 py-2 bg-gray-800 border-0 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-200"
                   >
                     {props.ticket.state}
                   </h3>
@@ -45,39 +58,30 @@ export default function TicketDetails(props) {
                   htmlFor="title"
                   className="block text-sm font-bold text-white"
                 >
-                  Title
+                  title
                 </label>
                 <div className="mt-1">
                   <h3
-                    id="state"
-                    name="state"
-                    className="appearance-none block w-full px-3 py-2
-                    bg-gray-800 border-0 rounded-md shadow-sm
-                    placeholder-gray-400 focus:outline-none
-                    focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm
-                    text-gray-200"
+                    id="title"
+                    name="title"
+                    className="appearance-none block w-full px-3 py-2 bg-gray-800 border-0 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-200"
                   >
                     {props.ticket.title}
                   </h3>
                 </div>
               </div>
-
               <div>
                 <label
                   htmlFor="description"
                   className="block text-sm font-bold text-white"
                 >
-                  Description
+                  description
                 </label>
                 <div className="mt-1">
                   <h3
-                    id="state"
-                    name="state"
-                    className="appearance-none block w-full px-3 py-2
-                    bg-gray-800 border-0 rounded-md shadow-sm
-                    placeholder-gray-400 focus:outline-none
-                    focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm
-                    text-gray-200"
+                    id="description"
+                    name="description"
+                    className="appearance-none block w-full px-3 py-2 bg-gray-800 border-0 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-200"
                   >
                     {props.ticket.description}
                   </h3>
@@ -88,17 +92,13 @@ export default function TicketDetails(props) {
                   htmlFor="author"
                   className="block text-sm font-bold text-white"
                 >
-                  Author
+                  author
                 </label>
                 <div className="mt-1">
                   <h3
-                    id="state"
-                    name="state"
-                    className="appearance-none block w-full px-3 py-2
-                    bg-gray-800 border-0 rounded-md shadow-sm
-                    placeholder-gray-400 focus:outline-none
-                    focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm
-                    text-gray-200"
+                    id="author"
+                    name="author"
+                    className="appearance-none block w-full px-3 py-2 bg-gray-800 border-0 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-200"
                   >
                     {props.ticket.author}
                   </h3>
