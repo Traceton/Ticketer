@@ -6,22 +6,29 @@ export default function CreateTicket() {
   const createNewTicket = async (event) => {
     event.preventDefault();
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST_URL}/api/tickets`, {
-      body: JSON.stringify({
-        number: event.target.number.value,
-        state: event.target.state.value,
-        title: event.target.title.value,
-        description: event.target.description.value,
-        author: event.target.author.value,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-        "User-Agent": "*",
-      },
-      method: "POST",
-    });
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_HOST_URL}/api/tickets`,
+        {
+          body: JSON.stringify({
+            number: event.target.number.value,
+            state: event.target.state.value,
+            title: event.target.title.value,
+            description: event.target.description.value,
+            author: event.target.author.value,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+            "User-Agent": "*",
+          },
+          method: "POST",
+        }
+      );
 
-    router.push(`/tickets`);
+      router.push(`/tickets`);
+    } catch (error) {
+      alert(`Could not submit -> ${error}`);
+    }
   };
 
   return (
@@ -134,12 +141,10 @@ export default function CreateTicket() {
                 >
                   Back
                 </button>
-                <button
+                <input
                   type="submit"
                   className=" flex grow justify-center py-2 px-4 mx-1 border border-gray-900 rounded-md shadow-sm text-sm font-medium text-white bg-none hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  Create
-                </button>
+                />
               </div>
             </form>
           </div>
