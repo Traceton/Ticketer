@@ -124,7 +124,7 @@ export default function EditTicket(props) {
                   description
                 </label>
                 <div className="mt-1">
-                  <input
+                  <textarea
                     defaultValue={props.ticket.description}
                     id="description"
                     name="description"
