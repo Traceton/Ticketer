@@ -1,12 +1,12 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { PlusSmIcon } from "@heroicons/react/solid";
+import TicketerLogo from "../shared/TicketerLogo";
 
 const user = {
-  name: "Tom Cook",
-  email: "tom@example.com",
+  name: "Traceton Timmerman",
+  email: "Traceton.timmerman@gmail.com",
   imageUrl:
     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 };
@@ -51,11 +51,9 @@ export default function Header() {
                     src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                     alt="Workflow"
                   />
-                  <img
-                    className="hidden lg:block h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-                    alt="Workflow"
-                  />
+                  <div className="hidden lg:flex pr-2">
+                    <TicketerLogo width={180} height={60} />
+                  </div>
                 </div>
                 <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
                   {navigation.map((item) => (
@@ -100,13 +98,9 @@ export default function Header() {
                   {/* Profile dropdown */}
                   <Menu as="div" className="ml-3 relative">
                     <div>
-                      <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                      <Menu.Button className="bg-none flex text-md rounded-md hover:border p-2">
                         <span className="sr-only">Open user menu</span>
-                        <img
-                          className="h-8 w-8 rounded-full"
-                          src={user.imageUrl}
-                          alt=""
-                        />
+                        <h1 className="text-white font-light">{user.name}</h1>
                       </Menu.Button>
                     </div>
                     <Transition
