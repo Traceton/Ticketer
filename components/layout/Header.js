@@ -11,15 +11,13 @@ const user = {
     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 };
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
+  { name: "Dashboard", href: "/tickets", current: true },
+  { name: "Team", href: "/teams", current: false },
 ];
 const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
+  { name: "Your Profile", href: "/profile" },
+  { name: "Settings", href: "/settings" },
+  { name: "Sign out", href: "/login" },
 ];
 
 function classNames(...classes) {
@@ -46,11 +44,9 @@ export default function Header() {
                   </Disclosure.Button>
                 </div>
                 <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className="block lg:hidden h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                    alt="Workflow"
-                  />
+                  <div className="flex lg:hidden">
+                    <TicketerLogo width={180} height={60} />
+                  </div>
                   <div className="hidden lg:flex pr-2">
                     <TicketerLogo width={180} height={60} />
                   </div>
@@ -76,6 +72,7 @@ export default function Header() {
               <div className="flex items-center">
                 <div className="flex-shrink-0">
                   <button
+                    href="/teams"
                     type="button"
                     className="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
                   >
@@ -83,7 +80,7 @@ export default function Header() {
                       className="-ml-1 mr-2 h-5 w-5"
                       aria-hidden="true"
                     />
-                    <span>New Job</span>
+                    <span>New Ticket</span>
                   </button>
                 </div>
                 <div className="hidden md:ml-4 md:flex-shrink-0 md:flex md:items-center">
